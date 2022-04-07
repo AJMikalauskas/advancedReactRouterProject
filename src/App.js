@@ -5,6 +5,7 @@ import QuoteList from "./components/quotes/QuoteList";
 //import MainHeader from "./components/UI/MainHeader";
 import AddQuote from "./pages/AddQuote";
 import AllQuotes from "./pages/AllQuotes";
+import NotFound from "./pages/NotFound";
 import QuoteDetail from "./pages/QuoteDetail";
 
 function App() {
@@ -27,6 +28,11 @@ function App() {
 
         <Route path="/addQuote">
           <AddQuote/>
+        </Route>
+        {/* If no other routes hit in the switch and it's a weird route such as localhost:3000/hello, 
+        show NotFound.js page - * means all routes when path set equal to it */}
+        <Route path="*">
+          <NotFound/>
         </Route>
 
       </Switch>
