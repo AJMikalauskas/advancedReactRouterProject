@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+import { useLocation,useHistory, useRouteMatch } from 'react-router-dom';
 
 import QuoteItem from './QuoteItem';
 import classes from './QuoteList.module.css';
@@ -41,8 +40,21 @@ const QuoteList = (props) => {
       // ascending sort for now, make dynamic later so it changes between asc and desc
         // dynamic sortSy query param based off operand bool above is isSortingAscending
           // follows same as below showing opposite of what is actually happening allows change option
-    history.push('/quotes?sortBy=' + (isSortingAscending ? 'desc' : 'asc'));
-  }
+    // location.pathname replaces the hardcoded/manually coded /quotes
+      // replace history.push('/quotes?sortBy=' + (isSortingAscending ? 'desc' : 'asc'));
+        // in below statement expression in() needs to be wrapped with string interpolation of ${}
+
+    // This is a very long string with expressions and lots of template literals/expressions
+      // replace this long string history.push(`${location.pathname}?sortBy=${(isSortingAscending ? 'desc' : 'asc')}`);
+        // with a better history.push that separates pathname and query params
+    // This is way better so you don't have to continue a very long string as in comment above. 
+      // This is also more readable
+      history.push({
+        pathname: location.pathname,
+        search:`?sortBy=${(isSortingAscending ? 'desc' : 'asc')}` 
+      });
+    };
+
   return (
     <Fragment>
       <div className={classes.sorting}>
