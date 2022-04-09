@@ -19,7 +19,8 @@ const Comments = () => {
         </button>
       )}
       {isAddingComment && <NewCommentForm />}
-      <p>Comments...</p>
+      {/* <p>Comments...</p> */}
+      
     </section>
   );
 };

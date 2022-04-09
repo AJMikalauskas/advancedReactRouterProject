@@ -32,7 +32,7 @@ const QuoteForm = (props) => {
   const finishEnteringHandler = () => 
   {
     // This fixes so that if you click add quote button, prompt doesn't show up because the state is set to false
-      setIsEnteringInfo(false);
+      setIsEnteringInfo(false); 
   }
 
   return (
