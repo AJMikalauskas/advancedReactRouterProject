@@ -89,7 +89,6 @@ const QuoteDetail = () => {
       ) : (
         <NoQuotesFound />
       )}
-      ;
     </div>
   );
 };
